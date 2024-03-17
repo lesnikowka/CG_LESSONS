@@ -244,5 +244,27 @@ namespace CG_LESSON_1
             GlassFilter filter = new GlassFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void вертикальныеВолныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            WaveFilter filter = new WaveFilter(WaveType.VERTICAL);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void горизонтальныеВолныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            WaveFilter filter = new WaveFilter(WaveType.HORIZONTAL);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
