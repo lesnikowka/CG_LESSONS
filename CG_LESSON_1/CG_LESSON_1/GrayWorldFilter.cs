@@ -11,11 +11,6 @@ namespace CG_LESSON_1
 {
     class GrayWorldFilter : Filters
     {
-        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
-        {
-            return sourceImage.GetPixel(x, y); // dummy
-        }
-
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker) 
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);

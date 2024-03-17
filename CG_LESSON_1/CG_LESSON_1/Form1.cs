@@ -215,5 +215,23 @@ namespace CG_LESSON_1
             GrayWorldFilter filter = new GrayWorldFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Image files | *.png; *.jpg; *.bmp | All Files (*.*) | *.*";
+
+            sfd.Title = "Save an Image File";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                image.Save(sfd.FileName);
+            }
+        }
     }
 }

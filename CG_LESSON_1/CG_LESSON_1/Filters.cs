@@ -10,7 +10,10 @@ namespace CG_LESSON_1
 {
     abstract class Filters
     {
-        protected abstract Color calculateNewPixelColor(Bitmap sourceImage, int x, int y);
+        protected virtual Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            return sourceImage.GetPixel(x, y);
+        }
         public int Clamp(int value, int min, int max)
         {
             if (value < min) 
