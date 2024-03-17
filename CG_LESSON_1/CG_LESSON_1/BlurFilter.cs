@@ -10,6 +10,11 @@ namespace CG_LESSON_1
     {
         public BlurFilter()
         {
+            CreateBLurKernel();
+        }
+
+        private void CreateBLurKernel()
+        {
             int sizeX = 3;
             int sizeY = 3;
             kernel = new float[sizeX, sizeY];
@@ -17,7 +22,7 @@ namespace CG_LESSON_1
             {
                 for (int j = 0; j < sizeY; j++)
                 {
-                    
+                    kernel[i, j] = 1.0f / (float)(sizeX * sizeY);
                 }
             }
         }

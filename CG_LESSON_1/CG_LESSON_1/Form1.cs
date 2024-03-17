@@ -12,7 +12,7 @@ namespace CG_LESSON_1
 {
     public partial class Form1 : Form
     {
-        Bitmap image;
+        Bitmap image = null;
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +34,11 @@ namespace CG_LESSON_1
 
         private void инверсияToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (image == null)
+            {
+                return;
+            }
+
             InvertFilter filter = new InvertFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
@@ -67,6 +72,28 @@ namespace CG_LESSON_1
             }
 
             progressBar1.Value = 0;
+        }
+
+        private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            BlurFilter filter = new BlurFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void размытиеПоГауссуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            GaussianFilter filter = new GaussianFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
         }
     }
 }
