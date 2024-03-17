@@ -16,6 +16,7 @@ namespace CG_LESSON_1
     {
         Bitmap image = null;
         string logName = "prev.txt";
+        string kernelName = "kernel.txt";
 
         public Form1()
         {
@@ -24,11 +25,22 @@ namespace CG_LESSON_1
 
             try
             {
-
                 using (var streamReader = new StreamReader(logName))
                 {
                     string fileName = streamReader.ReadToEnd();
                     loadImage(fileName);
+                    streamReader.Close();
+                }
+            }
+            catch { }
+
+            try
+            {
+                using (var streamReader = new StreamReader(kernelName))
+                {
+                    string kernelText = streamReader.ReadToEnd();
+                    richTextBox1.Text = kernelText;
+                    parseMatrix(kernelText);
                     streamReader.Close();
                 }
             }
@@ -287,6 +299,63 @@ namespace CG_LESSON_1
 
             LinearContrastCorrectionFilter filter = new LinearContrastCorrectionFilter();
             backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void label1_Click(object sender, EventArgs e){}
+
+        private float[,] parseMatrix(string m)
+        {
+            string nor = "";
+
+            for (int i = 0; i < m.Length; i++)
+            {
+                if (m[i] != '\r')
+                {
+                    nor += m[i];
+                }
+            }
+
+            if (nor[nor.Length-1] ==  '\n') 
+            {
+                nor = nor.Substring(0, nor.Length - 1);
+            }
+
+            int numLines = 1;
+            int numCols = 1;
+
+            string onlySpaces = "";
+
+            for (int i = 0; i <  nor.Length; i++) 
+            {
+                if (nor[i] == '\n')
+                {
+                    numLines++;
+                    numCols++;
+                    onlySpaces += " ";
+                    continue;
+                }
+                else if (nor[i] == ' ')
+                {
+                    numCols++;
+                }
+                onlySpaces += nor[i];
+            }
+
+            numCols /= numLines;
+
+            var result = new float[numLines, numCols];
+
+            string[] ssize = onlySpaces.Split();
+
+            for (int i = 0; i < numLines; i++)
+            {
+                for (int j = 0; j < numCols; j++)
+                {
+                    result[i,j] = float.Parse(ssize[numCols * i + j]);
+                }
+            }
+
+            return result;
         }
     }
 }
