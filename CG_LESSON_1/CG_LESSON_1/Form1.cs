@@ -233,5 +233,16 @@ namespace CG_LESSON_1
                 image.Save(sfd.FileName);
             }
         }
+
+        private void стеклоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            GlassFilter filter = new GlassFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

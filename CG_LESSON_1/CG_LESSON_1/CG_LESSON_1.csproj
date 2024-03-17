@@ -57,6 +57,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GaussianFilter.cs" />
+    <Compile Include="GlassFilter.cs" />
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="GrayWorldFilter.cs" />
     <Compile Include="InvertFilter.cs" />
