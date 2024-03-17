@@ -20,8 +20,8 @@ namespace CG_LESSON_1
             var dFilter = new DilationFilter(kernel);
             var eFilter = new ErosionFilter(kernel);
 
-            Bitmap resultImage = eFilter.processImage(sourceImage, worker, 50);
-            resultImage = dFilter.processImage(resultImage, worker, 50);
+            Bitmap resultImage = eFilter.processImage(sourceImage, worker);
+            resultImage = dFilter.processImage(resultImage, worker);
 
             return resultImage;
         }

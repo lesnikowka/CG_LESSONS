@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SepiaFilter.cs" />
     <Compile Include="SobelFilter.cs" />
+    <Compile Include="TopHatFilter.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WaveFilter.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace CG_LESSON_1
 {
-    class ClosingFilter : Filters
+    class TopHatFilter : Filters
     {
-        private float[,] kernel = null;
-        public ClosingFilter(float[,] kernel)
+        float[,] kernel = null;
+        public TopHatFilter(float[,] kernel)
         {
             this.kernel = kernel;
         }
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            var dFilter = new DilationFilter(kernel);
+            var cFilter = new ClosingFilter(kernel);
             var eFilter = new ErosionFilter(kernel);
 
-            Bitmap resultImage = dFilter.processImage(sourceImage, worker);
-            resultImage = eFilter.processImage(resultImage, worker);
+            Bitmap resultImage = cFilter.processImage(sourceImage, worker);
+            resultImage = eFilter.processImage(sourceImage, worker);
 
             return resultImage;
         }

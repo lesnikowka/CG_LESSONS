@@ -17,16 +17,11 @@ namespace CG_LESSON_1
         }
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            return processImage(sourceImage, worker, 100);
-        }
-
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker, int percent)
-        {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
 
             for (int y = kernel.GetLength(1) / 2; y < sourceImage.Height - kernel.GetLength(1) / 2; y++)
             {
-                worker.ReportProgress((int)((float)y / resultImage.Height * percent));
+                worker.ReportProgress((int)((float)y / resultImage.Height * 100));
 
                 if (worker.CancellationPending)
                 {
@@ -40,7 +35,7 @@ namespace CG_LESSON_1
                     {
                         for (int i = -kernel.GetLength(0) / 2; i < kernel.GetLength(0) / 2; i++)
                         {
-                            if (kernel[i, j] > 0)
+                            if (kernel[i + kernel.GetLength(0) / 2, j + kernel.GetLength(1) / 2] > 0)
                             {
                                 min = Math.Min(min, sourceImage.GetPixel(x + i, y + j).R);
                             }

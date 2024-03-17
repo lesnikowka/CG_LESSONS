@@ -78,7 +78,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            InvertFilter filter = new InvertFilter();
+            var filter = new InvertFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -120,7 +120,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            BlurFilter filter = new BlurFilter();
+            var filter = new BlurFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -131,7 +131,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            GaussianFilter filter = new GaussianFilter();
+            var filter = new GaussianFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -142,7 +142,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            GrayScaleFilter filter = new GrayScaleFilter();
+            var filter = new GrayScaleFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -153,7 +153,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            SepiaFilter filter = new SepiaFilter();
+            var filter = new SepiaFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -164,7 +164,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            BrightnessFilter filter = new BrightnessFilter(true);
+            var filter = new BrightnessFilter(true);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -175,7 +175,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            BrightnessFilter filter = new BrightnessFilter(false);
+            var filter = new BrightnessFilter(false);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -186,7 +186,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            ClarityFilter filter = new ClarityFilter();
+            var filter = new ClarityFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -202,7 +202,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            SobelFilter filter = new SobelFilter(true);
+            var filter = new SobelFilter(true);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -213,7 +213,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            SobelFilter filter = new SobelFilter(false);
+            var filter = new SobelFilter(false);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -224,7 +224,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            GrayWorldFilter filter = new GrayWorldFilter();
+            var filter = new GrayWorldFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -235,7 +235,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            SaveFileDialog sfd = new SaveFileDialog();
+            var sfd = new SaveFileDialog();
             sfd.Filter = "Image files | *.png; *.jpg; *.bmp | All Files (*.*) | *.*";
 
             sfd.Title = "Save an Image File";
@@ -253,7 +253,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            GlassFilter filter = new GlassFilter();
+            var filter = new GlassFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -264,7 +264,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            WaveFilter filter = new WaveFilter(WaveType.VERTICAL);
+            var filter = new WaveFilter(WaveType.VERTICAL);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -275,7 +275,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            WaveFilter filter = new WaveFilter(WaveType.HORIZONTAL);
+            var filter = new WaveFilter(WaveType.HORIZONTAL);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -286,7 +286,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            MotionBlurFilter filter = new MotionBlurFilter(9);
+            var filter = new MotionBlurFilter(9);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -297,7 +297,7 @@ namespace CG_LESSON_1
                 return;
             }
 
-            LinearContrastCorrectionFilter filter = new LinearContrastCorrectionFilter();
+            var filter = new LinearContrastCorrectionFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
@@ -356,6 +356,70 @@ namespace CG_LESSON_1
             }
 
             return result;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            using (var streamWriter = new StreamWriter(kernelName, false))
+            {
+                streamWriter.Write(richTextBox1.Text);
+                streamWriter.Close();
+            }
+        }
+
+        private void расширениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var filter = new DilationFilter(parseMatrix(richTextBox1.Text));
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void сужениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var filter = new ErosionFilter(parseMatrix(richTextBox1.Text));
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void закрытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var filter = new ClosingFilter(parseMatrix(richTextBox1.Text));
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void открытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var filter = new OpeningFilter(parseMatrix(richTextBox1.Text));
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var filter = new TopHatFilter(parseMatrix(richTextBox1.Text));
+            backgroundWorker1.RunWorkerAsync(filter);
         }
     }
 }
