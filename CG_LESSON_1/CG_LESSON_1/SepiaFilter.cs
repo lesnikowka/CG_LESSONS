@@ -15,7 +15,7 @@ namespace CG_LESSON_1
 
             Color sourceColor = sourceImage.GetPixel(x, y);
 
-            byte intensity = Utilities.GetIntensity(sourceColor);
+            int intensity = Utilities.GetIntensity(sourceColor);
 
             Color resultColor = Color.FromArgb(
                 Clamp((int)(intensity + 2 * k), 0, 255)
