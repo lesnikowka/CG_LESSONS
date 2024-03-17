@@ -277,5 +277,16 @@ namespace CG_LESSON_1
             MotionBlurFilter filter = new MotionBlurFilter(9);
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            LinearContrastCorrectionFilter filter = new LinearContrastCorrectionFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
