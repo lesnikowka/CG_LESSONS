@@ -23,7 +23,7 @@ namespace CG_LESSON_1
             }
             return value;
         }
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        public virtual Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
 

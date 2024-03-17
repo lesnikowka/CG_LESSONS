@@ -16,7 +16,7 @@ namespace CG_LESSON_1
             return sourceImage.GetPixel(x, y); // dummy
         }
 
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker) 
+        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker) 
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
 
