@@ -46,7 +46,7 @@ namespace CG_LESSON_1
             return Color.FromArgb(
                 Clamp((int)resR, 0, 255)
                 , Clamp((int)resG, 0, 255)
-                , Clamp((int)resG, 0, 255)
+                , Clamp((int)resB, 0, 255)
                 );
         }
     }

@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CG_LESSON_1
 {
-    class InvertFilter : Filters
+    class GrayScaleFilter : Filters
     {
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             Color sourceColor = sourceImage.GetPixel(x, y);
+
+            byte intensity = Utilities.GetIntensity(sourceColor);
+
             Color resultColor = Color.FromArgb(
-                255 - sourceColor.R
-                , 255 - sourceColor.G
-                , 255 - sourceColor.B
+                intensity
+                , intensity
+                , intensity
                 );
 
             return resultColor;
