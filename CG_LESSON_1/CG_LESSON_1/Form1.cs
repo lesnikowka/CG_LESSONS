@@ -204,5 +204,16 @@ namespace CG_LESSON_1
             SobelFilter filter = new SobelFilter(false);
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void серыйМирToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            GrayWorldFilter filter = new GrayWorldFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
