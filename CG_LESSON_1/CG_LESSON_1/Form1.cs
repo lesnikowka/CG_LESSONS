@@ -144,5 +144,65 @@ namespace CG_LESSON_1
             SepiaFilter filter = new SepiaFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void повышениеЯркостиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            BrightnessFilter filter = new BrightnessFilter(true);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void понижениеЯркостиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            BrightnessFilter filter = new BrightnessFilter(false);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void резкостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            ClarityFilter filter = new ClarityFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void фильтрСоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            SobelFilter filter = new SobelFilter(true);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void фильтрСобеляосьYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            SobelFilter filter = new SobelFilter(false);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
