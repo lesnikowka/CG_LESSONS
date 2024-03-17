@@ -266,5 +266,16 @@ namespace CG_LESSON_1
             WaveFilter filter = new WaveFilter(WaveType.HORIZONTAL);
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void motionBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            MotionBlurFilter filter = new MotionBlurFilter(9);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.стеклоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вертикальныеВолныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.горизонтальныеВолныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.motionBlurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             this.фильтрыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(735, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(735, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +93,7 @@
             this.матричныеToolStripMenuItem,
             this.серыйМирToolStripMenuItem});
             this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
-            this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.фильтрыToolStripMenuItem.Text = "Фильтры";
             // 
             // точечныеToolStripMenuItem
@@ -152,7 +153,8 @@
             this.размытиеПоГауссуToolStripMenuItem,
             this.резкостьToolStripMenuItem,
             this.фильтрСоToolStripMenuItem,
-            this.фильтрСобеляосьYToolStripMenuItem});
+            this.фильтрСобеляосьYToolStripMenuItem,
+            this.motionBlurToolStripMenuItem});
             this.матричныеToolStripMenuItem.Name = "матричныеToolStripMenuItem";
             this.матричныеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.матричныеToolStripMenuItem.Text = "Матричные";
@@ -260,6 +262,13 @@
             this.горизонтальныеВолныToolStripMenuItem.Text = "Вертикальные волны";
             this.горизонтальныеВолныToolStripMenuItem.Click += new System.EventHandler(this.горизонтальныеВолныToolStripMenuItem_Click);
             // 
+            // motionBlurToolStripMenuItem
+            // 
+            this.motionBlurToolStripMenuItem.Name = "motionBlurToolStripMenuItem";
+            this.motionBlurToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.motionBlurToolStripMenuItem.Text = "Motion Blur";
+            this.motionBlurToolStripMenuItem.Click += new System.EventHandler(this.motionBlurToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,6 +316,7 @@
         private System.Windows.Forms.ToolStripMenuItem стеклоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вертикальныеВолныToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem горизонтальныеВолныToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem motionBlurToolStripMenuItem;
     }
 }
 
