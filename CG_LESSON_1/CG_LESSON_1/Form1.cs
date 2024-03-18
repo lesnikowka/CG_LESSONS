@@ -202,19 +202,19 @@ namespace CG_LESSON_1
                 return;
             }
 
-            var filter = new SobelFilter(true);
+            var filter = new SobelFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void фильтрСобеляосьYToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (image == null)
-            {
-                return;
-            }
-
-            var filter = new SobelFilter(false);
-            backgroundWorker1.RunWorkerAsync(filter);
+            //if (image == null)
+            //{
+            //    return;
+            //}
+            //
+            //var filter = new SobelFilter(false);
+            //backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void серыйМирToolStripMenuItem_Click(object sender, EventArgs e)
